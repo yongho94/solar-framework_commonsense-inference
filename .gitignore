@@ -1,0 +1,6 @@
+shell/*
+*__pycache__
+*.yml
+human_eval
+*.ipynb
+*gpt*
