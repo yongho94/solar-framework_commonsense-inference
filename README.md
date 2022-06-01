@@ -6,4 +6,7 @@ Code will be released soon!
 All code and data will be uploaded (probably) by June 18th.
 
 
+Download Similarity Matrix : 
+```bash
 gdown https://drive.google.com/uc?id=1EHMIZXP_T1UfSzCWv9Is16n8DRW3dGJx
+```
