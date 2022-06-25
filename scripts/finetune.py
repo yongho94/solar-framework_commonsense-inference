@@ -53,9 +53,6 @@ parser.add_argument('--patience', type=int, default=2)
 
 args = parser.parse_args()
 
-if args.same_hwang:
-    print('USE SAME HWANG !!!!!!!!!!!!!')
-
 if args.load_model is not None:
     assert args.exp_type == 'experiments'
 

@@ -25,7 +25,6 @@ from models.loss_func import *
 from src.trainer import *
 from copy import deepcopy
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '2'
 
 parser = argparse.ArgumentParser()
 
