@@ -44,12 +44,12 @@ sim: ## <- This is similarity matrix. you can download it from the above url.
 ### Fine-tuning
 
 ```
-python scripts/finetune.py --dataset_type {dataset} --lr {lr} 
+python scripts/finetune.py --dataset_type {dataset} --model_name {model_name} --model_size {model_size}
 ```
 
 ## Pre-training
 
 ```
-python scripts/pretrain.py --dataset_type {dataset}
+python scripts/feature_learn.py --dataset_type {dataset} --model_name {model_name} --model_size {model_size}
 ```
 
