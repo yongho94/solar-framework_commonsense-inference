@@ -1,0 +1,13 @@
+# Test Version
+
+name: 'atomic-2020'
+truncate:
+    subj_len: 25
+    obj_len: 25
+dir:
+    train: '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/atomic-2020/train.tsv'
+    dev: '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/atomic-2020/dev.tsv'
+    test : '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/atomic-2020/test.tsv'
+sim:
+    train: '/mnt/data/user8/solar-commonsense_inference/data/sim_mat/atomic-2020/train_subj_dist__a_concept_related_to.pkl'
+    dev: '/mnt/data/user8/solar-commonsense_inference/data/sim_mat/atomic-2020/dev_subj_dist__a_concept_related_to.pkl'

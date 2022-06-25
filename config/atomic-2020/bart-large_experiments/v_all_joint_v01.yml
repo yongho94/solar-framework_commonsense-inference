@@ -1,0 +1,82 @@
+# Test Version
+task:
+    max_enc: 25
+    max_dec: 25
+    init_with_shuffle: true # Only For Training dataset
+    gen_task:
+        weight: 0.0
+        loss_func: "cross-entropy"
+    con_task:
+        weight: 0.8
+        method: "cluster" # cluster, naive
+        cluster_contrast:
+            group_num: 4
+            pos_subj_min: 0.85
+        sampling_method: "adv" # random, adv
+        adv_sampling:
+            min_sim: 0.2
+            max_sim: 0.7
+        loss_func: "NT-Logistic"
+    rec_inf_shu_task:
+        weight: 0.2
+        method: "naive"
+        loss_func: "cross-entropy"
+        no_crpt_prob: 0.25
+        subj_crpt_prob: 0.25
+        rel_crpt_prob: 0.25
+        obj_crpt_prob: 0.25
+        shuffle_prob: 0.5
+    den_task:
+        weight: 0.0
+        method: "naive"
+        subj_mask_prob: 0.33
+        rel_mask_prob: 0.33
+        obj_mask_prob: 0.34
+        hint_prob: 0.3
+        hint_from_the_front: true
+        loss_func: "cross-entropy"
+
+model:
+    name: 'bart-large'
+    pretrained_model: 'facebook/bart-large'
+    tokenize_model: 'facebook/bart-large'
+    task_adaptor_options:
+        common:
+            use_task_prefix: true
+        con_task:
+            format: 'enc-dec'
+            dec_input_ids_s: 'con_task_token_id' # bos_token_id | con_task_token_id | con_task_token_s_id |
+            dec_input_ids_ro: 'con_task_token_id' # bos_token_id | con_task_token_id | con_task_token_s_id | con_task_token_ro_id
+        rec_inf_shu_task:
+            format: 'enc-dec'
+            dec_input_ids: 'bos_token_id' # bos_token_id | den_task_token_id | den_task_token_for_dec_id
+
+    contrastive_head:
+        proj_layer_type: 'multi-head' # multi-head-deeper | multi-head | non-linear
+        pool_method: 'all_joint' # dec_bos, mean_pool_enc, all_joint, 
+        multi-head:
+            head_num: 8
+            head_dim: 512
+            pool_method: "maxpool"
+        multi-head-deeper:
+            head_num: 12
+            inner_hidden_mul: 3
+            head_dim: 512
+            pool_method: "maxpool"
+
+opt:
+    lr_scheduler: "linear"
+    warmup_steps: 200
+    clip_grad_norm: 1.0
+    weight_decay: 0
+    output_dropout_p: 0.1
+    optimizer: 'adam'
+    adam_beta_1: 0.9
+    adam_beta_2: 0.999
+    adam_eps: 1E-08
+    temperature: 0.1 #0.1
+    use_l2: true
+log:
+    tb_period: 10
+    val_period: 1000
+    save_period: 10000

@@ -1,0 +1,13 @@
+# Test Version
+
+name: 'conceptnet'
+truncate:
+    subj_len: 25
+    obj_len: 25
+dir:
+    train: '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/conceptnet/train.tsv'
+    dev: '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/conceptnet/dev.tsv'
+    test: '/mnt/data/user8/solar-commonsense_inference/data/tuple_data/conceptnet/test.tsv'
+sim:
+    train: '/mnt/data/user8/solar-commonsense_inference/data/sim_mat/conceptnet/train_subj_dist__a_concept_related_to.pkl'
+    dev: '/mnt/data/user8/solar-commonsense_inference/data/sim_mat/conceptnet/dev_subj_dist__a_concept_related_to.pkl'

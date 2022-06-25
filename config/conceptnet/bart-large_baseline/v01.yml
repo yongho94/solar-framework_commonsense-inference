@@ -1,0 +1,22 @@
+# Fine-Tuning
+
+model:
+    name: 'bart-large'
+    pretrained_model: 'facebook/bart-large'
+    tokenize_model: 'facebook/bart-large'
+
+opt:
+    lr_scheduler: "linear"
+    warmup_steps: 200
+    clip_grad_norm: 1.0
+    weight_decay: 0
+    output_dropout_p: 0.1
+    optimizer: 'adam'
+    adam_beta_1: 0.9
+    adam_beta_2: 0.999
+    adam_eps: 1E-08
+
+log:
+    tb_period: 10
+    val_period: 1000
+    save_period: 5000
