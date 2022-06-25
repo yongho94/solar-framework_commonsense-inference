@@ -6,3 +6,24 @@ Download Similarity Matrix :
 ```bash
 gdown https://drive.google.com/uc?id=1EHMIZXP_T1UfSzCWv9Is16n8DRW3dGJx
 ```
+
+### Preprocessing
+
+#### Download knowledge graphs
+Commonsense Knowledge Graph Sources :
+
+* [ConceptNet](https://home.ttic.edu/~kgimpel/commonsense.html)
+* [ATOMIC](https://allenai.org/data/atomic)
+* [ATOMIC-2020](https://allenai.org/data/atomic-2020)
+
+#### Simple preprocess
+* Download the above files, and preprocess each element in tab-separated tsv format.
+```
+# examples
+subject1 \t relation1 \t object1
+subject2 \t relation2 \t object2
+...
+```
+
+### Fine-tuning
+# 
