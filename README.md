@@ -25,5 +25,31 @@ subject2 \t relation2 \t object2
 ...
 ```
 
+* Modify the preprocessed data path in config/{dataset}/dataset.yml
+```
+name: 'atomic'
+truncate:
+    subj_len: 25
+    obj_len: 25
+dir:
+    train: {your path}
+    dev: {your path}
+    test: {your path}
+sim: ## <- This is similarity matrix. you can download it from the above url.
+    train: {your path}
+    dev: {your path}
+
+```
+
 ### Fine-tuning
-# 
+
+```
+python scripts/finetune.py --dataset_type {dataset} --lr {lr} 
+```
+
+## Pre-training
+
+```
+python scripts/pretrain.py --dataset_type {dataset}
+```
+
